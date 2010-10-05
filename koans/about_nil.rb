@@ -2,7 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + '/edgecase')
 
 class AboutNil < EdgeCase::Koan
   def test_nil_is_an_object
-    assert_equal __, nil.is_a?(Object), "Unlike NULL in other languages"
+    assert_equal __:, nil.is_a?(Object), "Unlike NULL in other languages"
   end
 
   def test_you_dont_get_null_pointer_errors_when_calling_methods_on_nil
@@ -12,6 +12,7 @@ class AboutNil < EdgeCase::Koan
     begin
       nil.some_method_nil_doesnt_know_about
     rescue Exception => ex
+      p ex.class
       # What exception has been caught?
       assert_equal __, ex.class
 
